@@ -1,0 +1,31 @@
+<div style="margin:10px 30px;">
+    <button (click)="clearFilter()">Clear Filter</button>
+    <button style = "margin: 10px;" (click)="clearSort()">Clear Sort</button>
+    <span style="margin-left: 10px;"> Page Size:</span>
+    <select style="margin-left: 10px; width: 50px;" [(ngModel)]="paginationPageSize"
+        (ngModelChange)="onPageSizeChanged($event)">
+        <option *ngFor="let c of pageSizeList" [ngValue]="c"> {{c}} </option>
+    </select>
+    <div *ngIf= "filterList?.length > 0" style="margin: 10px;">
+        <label>Filter List</label>
+        <ul *ngFor = "let filter of filterList">
+          <li><label>{{filter.key}} {{filter.type}} {{filter.filter}}</label></li>
+        </ul>
+    </div>
+    <div class="test-header" style="height: 5%">
+        <label><input type="checkbox" checked (change)="onAsset($event.target.checked)" />Asset Name</label>
+        <label><input type="checkbox" checked (change)="onPrice($event.target.checked)" />Price</label>
+        <label><input type="checkbox" checked (change)="onDate($event.target.checked)" />Date</label>
+        <label><input type="checkbox" checked (change)="onCurrency($event.target.checked)" />Stock and Currency</label>
+    </div>
+</div>
+
+  
+<div>
+    <ag-grid-angular style="width: 100%; height: 700px;" enableColResize class="ag-theme-alpine"
+        [rowData]="displayAssets" [columnDefs]="columnDefs" [animateRows]="true" [enableCellChangeFlash]="true"
+        [pagination]="true" [paginationPageSize]="paginationPageSize" [enableRangeSelection]="true" [unSortIcon]="true"
+        [multiSortKey]="multiSortKey"
+        [suppressMenuHide]="true" [rowBuffer]="paginationPageSize" (gridReady)="onGridReady($event)">
+    </ag-grid-angular>
+</div>

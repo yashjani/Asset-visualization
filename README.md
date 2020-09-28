@@ -1,1 +1,1 @@
-# Asset-visualization
+![](AssetVis.gif)
