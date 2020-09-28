@@ -2,12 +2,12 @@
 
 ![](Filter.gif)
 
-![](Hide:Show.gif)
+![](HideShow.gif)
 
-![](MultipleSort.gif)
+![](MulipleSort.gif)
 
 ![](NormalSort.gif)
 
 ![](Pagination.gif)
 
-![](Resize:Replace.gif)
+![](ResizeReplace.gif)
